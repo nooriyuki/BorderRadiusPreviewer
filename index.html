@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Border Radius Previwer
+    </title>
+
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            flex-direction: row;
+            background-color: black; 
+            align-items: center;
+            justify-content: center;
+        }
+        input{
+            left: -3px
+        }
+        .container{
+            display: flex;
+            background-color: white;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: space-around;
+            padding: 50px;
+            border: 1px solid black;        
+        }
+        .input-child{
+            margin: 5px;
+            position: relative;
+            right: 10px;
+        }
+        #result{
+            margin-top: 20px;
+            background: blue;
+            height: 150px;
+            width: 150px;
+            align-self: center
+        }
+
+        #button{
+            position: relative;
+            right: 110px;
+            margin-top: 20px;
+        }
+
+    </style>
+    
+    <script>
+        window.onload = function() {
+            var button = document.getElementById('button').addEventListener('click', ()=>{
+                var topLeft = document.getElementById('input1').value || '0'
+                var topRight = document.getElementById('input2').value || '0'
+                var bottomLeft = document.getElementById('input3').value || '0'
+                var bottomRight = document.getElementById('input4').value || '0'
+                // `${topLeft} ${topRight} ${bottomLeft} ${bottomRight}`
+                document.getElementById('result').style.borderTopLeftRadius = topLeft
+                document.getElementById('result').style.borderTopRightRadius = topRight
+                document.getElementById('result').style.borderBottomLeftRadius = bottomLeft
+                document.getElementById('result').style.borderBottomRightRadius = bottomRight
+            })
+        }
+    </script>
+</head>
+<body>
+    <div class='container'>
+        <label>Top-left:    
+            <input type='text' class = 'input-child' id ='input1' />
+        </label>
+        <label>Top-right:    
+            <input type='text' class = 'input-child' id ='input2' />
+        </label>
+        <label>Bottom-Left:    
+            <input type='text' class = 'input-child' id ='input3' />
+        </label>
+        <label>Bottom-Right:    
+            <input type='text' class = 'input-child' id ='input4' />
+        </label>
+        <button id='button'>Submit</button>
+        <div id='result'>
+        </div>
+    </div>
+</body>
+</html>
